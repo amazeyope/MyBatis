@@ -14,4 +14,32 @@
   <select id="getAll" resultMap="BaseResultMap">
 	select ID, NAME, AGE, ADDRESS from T_USER
   </select>
+
+  <insert id="insert" parameterType="com.amazeyope.model.User" >
+    insert into T_USER (ID, NAME, AGE,
+    ADDRESS)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR},
+    #{address,jdbcType=VARCHAR})
+  </insert>
+
+  <delete id="deleteById" parameterType="java.lang.String" >
+    delete from T_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="getUserById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from T_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updateById" parameterType="com.amazeyope.model.User" >
+    update T_USER
+    set NAME = #{name,jdbcType=VARCHAR},
+    AGE = #{age,jdbcType=VARCHAR},
+    ADDRESS = #{address,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
 </mapper>

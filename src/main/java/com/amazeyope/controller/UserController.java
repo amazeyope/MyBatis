@@ -2,13 +2,13 @@ package com.amazeyope.controller;
 
 import com.amazeyope.model.User;
 import com.amazeyope.service.UserServiceI;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Administrator on 2016/3/13.
@@ -20,13 +20,37 @@ public class UserController {
     @Resource
     private UserServiceI userService;
 
-
-
     @RequestMapping(value="/listUser")
     public String listUser(HttpServletRequest request) {
-
         List<User> list = userService.getAll();
         request.setAttribute("userlist", list);
         return "listUser";
+    }
+
+    @RequestMapping(value="/addUser")
+    public String addUser(User user) {
+        String id = UUID.randomUUID().toString();
+        user.setId(id);
+        userService.insert(user);
+        return "redirect:/userController/listUser.do";
+    }
+
+    @RequestMapping(value="/deleteUser")
+    public String deleteUser(String id) {
+        userService.delete(id);
+        return "redirect:/userController/listUser.do";
+    }
+
+    @RequestMapping(value="/getUserById")
+    public String getUserById(String id, HttpServletRequest request) {
+        User user = userService.getUserById(id);
+        request.setAttribute("user", user);
+        return "updateUser";
+    }
+
+    @RequestMapping(value="/updateUser")
+    public String updateUser(User user) {
+        userService.update(user);
+        return "redirect:/userController/listUser.do";
     }
 }

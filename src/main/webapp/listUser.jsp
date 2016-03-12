@@ -13,15 +13,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
   	<h3>UserList</h3>
-  <%--	<a href="<%=path %>/addUser.jsp">Add User</a><br/>--%>
+  	<a href="<%=path %>/addUser.jsp">Add User</a><br/>
 	<table border="1" width="70%">
    		<tr>
    			<td>Id</td>
    			<td>Name</td>
    			<td>Age</td>
    			<td>Address</td>
-   		<%--	<td>Delete</td>
-   			<td>Update</td>--%>
+   			<td>Delete</td>
+			<td>Update</td>
    		</tr>
    		<c:forEach items="${userlist}" var="user">
    		<tr>
@@ -29,8 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    			<td>${user.name }</td>
    			<td>${user.age }</td>
    			<td>${user.address }</td>
-   		<%--	<td><a href="<%=path %>/muserController/deleteUser.do?id=${user.id }">Delete</a></td>
-   			<td><a href="<%=path %>/muserController/updateUserUI.do?id=${user.id }">Update</a></td>--%>
+   		<td><a href="<%=path %>/userController/deleteUser.do?id=${user.id }">Delete</a></td>
+		<td><a href="<%=path %>/userController/getUserById.do?id=${user.id }">Update</a></td>
    		</tr>
    		</c:forEach>
    </table>
