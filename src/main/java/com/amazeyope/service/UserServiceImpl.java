@@ -40,4 +40,14 @@ public class UserServiceImpl implements UserServiceI {
     public int update(User user) {
         return userMapper.updateById(user);
     }
+
+    @Override
+    public int insertSelective(User user) {
+        return userMapper.insertSelective(user);
+    }
+
+    @Override
+    public int updateByIdSelective(User user) {
+        return userMapper.updateByIdSelective(user);
+    }
 }

@@ -18,4 +18,8 @@ public interface UserMapper {
     int updateById(User user);
 
     User getUserById(String id);
+
+    int insertSelective(User user);
+
+    int updateByIdSelective(User user);
 }

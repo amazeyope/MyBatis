@@ -41,4 +41,18 @@ public interface UserServiceI {
      * @return
      */
     int update(User user);
+
+    /**
+     * 选择性插入字段
+     * @param user
+     * @return
+     */
+    int insertSelective(User user);
+
+    /**
+     * 选择性更新字段
+     * @param user
+     * @return
+     */
+    int updateByIdSelective(User user);
 }
