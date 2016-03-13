@@ -1,8 +1,8 @@
 package com.amazeyope.dao;
-
 import com.amazeyope.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/3/13.
@@ -22,4 +22,6 @@ public interface UserMapper {
     int insertSelective(User user);
 
     int updateByIdSelective(User user);
+
+    List<User> queryUserListByPage(Map<String,Object> parameter);
 }

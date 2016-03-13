@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.amazeyope.dao.UserMapper" >
+
+  <!-- resultMap 为映射对应的类型  resultType 为对应的java返回类型 -->
   <resultMap id="BaseResultMap" type="com.amazeyope.model.User" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
     <result column="NAME" property="name" jdbcType="VARCHAR" />
@@ -89,5 +91,9 @@
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="queryUserListByPage" parameterType="java.util.Map"  resultMap="BaseResultMap">
+    select ID, NAME, AGE, ADDRESS from T_USER ORDER BY ID ASC
+  </select>
 
 </mapper>

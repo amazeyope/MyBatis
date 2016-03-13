@@ -1,7 +1,7 @@
 # SpringMVC+Spring+MyBatis
 # Frameworks and Tools
 * Java&IDE: JDK6 Intellij IDEA
-* Backend: Spring 3.0.2.RELEASE MyBatis1.1.1 (Configured by annotation)
+* Backend: Spring 3.0.2.RELEASE MyBatis3.2.7 (Configured by annotation)
 * Database: MySql 5.1.28
 * Web Server: Jetty 6.1.5
 * Build Tool: Maven

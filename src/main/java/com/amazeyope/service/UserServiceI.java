@@ -1,5 +1,6 @@
 package com.amazeyope.service;
 
+import com.amazeyope.model.Page;
 import com.amazeyope.model.User;
 
 import java.util.List;
@@ -55,4 +56,10 @@ public interface UserServiceI {
      * @return
      */
     int updateByIdSelective(User user);
+
+    /**
+     *
+     * @return
+     */
+    List<User> queryUserListByPage(Page page);
 }
