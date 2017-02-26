@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 命名空间（Namespaces） 建议使用完全限定名可以保证全局唯一也可以作为一个单独的引用 -->
 <mapper namespace="com.amazeyope.dao.UserMapper" >
-
   <!-- resultMap 为映射对应的类型  resultType 为对应的java返回类型 -->
   <resultMap id="BaseResultMap" type="com.amazeyope.model.User" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
